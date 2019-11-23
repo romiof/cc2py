@@ -35,7 +35,7 @@ class Triangulo:
         t3 = []
         t1 = list((self.a, self.b, self.c))
         t2 = list((t.a, t.b, t.c))
-        for i in len(t1 - 1):
+        for i in range(len(t1)):
             # Testa ordem que vai aplicar o operador % MOD
             if t1[i] > t2[i]:
                 # Aplica operador % MOD para procurar similaridade
@@ -50,10 +50,8 @@ class Triangulo:
                 else:
                     t3.append(False)
         t3.sort()
-        if t3[0]:
-            return True
-        else:
-            return False
+        # Lista t3 está ordenada, e o False vem por primeiro, assim, se existir um false não é semelhante.
+        return t3[0]
 
 def main():
     t1 = Triangulo(2, 2, 2)
